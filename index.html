@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franklin Dawoh Coding Academy</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#0d1117;
+color:white;
+}
+
+header{
+text-align:center;
+padding:40px;
+background:#161b22;
+}
+
+nav{
+background:#21262d;
+padding:12px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#58a6ff;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:#161b22;
+padding:20px;
+margin-bottom:20px;
+border-radius:8px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+margin-bottom:10px;
+border-radius:5px;
+border:none;
+}
+
+button{
+padding:10px 20px;
+background:#238636;
+border:none;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2ea043;
+}
+
+.lesson{
+background:#21262d;
+padding:15px;
+margin-top:10px;
+border-radius:6px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#161b22;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Franklin Dawoh Coding Academy</h1>
+<p>Learn Programming with Franklin</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#create">Create Lesson</a>
+<a href="#lessons">Lessons</a>
+</nav>
+
+<div class="container">
+
+<div class="card" id="home">
+<h2>Welcome</h2>
+<p>This platform teaches programming and coding. Learn HTML, CSS, JavaScript, and more.</p>
+</div>
+
+<div class="card" id="create">
+<h2>Create a Lesson</h2>
+
+<input id="title" placeholder="Lesson Title">
+
+<textarea id="content" rows="5" placeholder="Write your coding lesson here..."></textarea>
+
+<button onclick="addLesson()">Publish Lesson</button>
+
+</div>
+
+<div class="card" id="lessons">
+<h2>Lessons</h2>
+
+<div id="lessonList"></div>
+
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Franklin Dawoh Coding Academy</p>
+</footer>
+
+<script>
+
+function addLesson(){
+
+let title=document.getElementById("title").value;
+let content=document.getElementById("content").value;
+
+if(title=="" || content==""){
+alert("Please write a title and lesson");
+return;
+}
+
+let lesson=document.createElement("div");
+lesson.className="lesson";
+
+lesson.innerHTML="<h3>"+title+"</h3><p>"+content+"</p>";
+
+document.getElementById("lessonList").prepend(lesson);
+
+document.getElementById("title").value="";
+document.getElementById("content").value="";
+
+}
+
+</script>
+
+</body>
+</html>
